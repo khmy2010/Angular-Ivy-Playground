@@ -3,4 +3,7 @@ export interface IPostModel {
   id: number,
   title: string,
   body: string
+
+  //self added property
+  userData: any
 }
