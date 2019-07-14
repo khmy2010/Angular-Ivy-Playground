@@ -1,1 +1,8 @@
-<p>comment works!</p>
+<div class="content is-small mt3 mb3">
+  <h4>{{ comment?.name }}</h4>
+  <p class="has-text-grey-dark">{{ comment?.body }}</p>
+  <div class="has-text-grey">
+    <span class="mr1">by: </span>
+    <span class="lowercase">{{ comment?.email }}</span>
+  </div>
+</div>

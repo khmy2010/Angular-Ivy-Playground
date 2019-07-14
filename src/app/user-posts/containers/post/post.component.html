@@ -22,7 +22,9 @@
     </div>
   </section>
 
-  <div class="content is-medium pl2 pr2">
+  <div class="content is-medium pl2 pr2 mb4">
     <p>{{ postData?.body }}</p>
   </div>
+
+  <comment-container [comments]="postData?.comments"></comment-container>
 </ng-container>

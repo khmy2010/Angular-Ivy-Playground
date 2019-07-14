@@ -1,1 +1,7 @@
-<p>comments-container works!</p>
+<div class="pl2 pr2">
+  <h5 class="is-size-5 mb3 mt1 bold has-text-info">Comments</h5>
+
+  <ng-container *ngFor="let comment of comments">
+    <post-comment [comment]="comment"></post-comment>
+  </ng-container>
+</div>

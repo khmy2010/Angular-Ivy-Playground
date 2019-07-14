@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ICommentModel } from 'src/app/post-api/model/comment.i';
 
 @Component({
   selector: 'comment-container',
@@ -6,11 +7,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./comments-container.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CommentsContainerComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class CommentsContainerComponent {
+  @Input() comments: Array<ICommentModel> = [];
 }
