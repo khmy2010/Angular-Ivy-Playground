@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "c": "npx git-cz",
     "p": "git push -u origin master",
-    "gc": "ng g c user-posts/post-card --skipImport=true --selector=post-card --skipTests=true -c=OnPush"
+    "gc": "ng g c shared/loading-splash --skipImport=true --selector=app-loading-splash --skipTests=true -c=OnPush"
   },
   "private": true,
   "dependencies": {

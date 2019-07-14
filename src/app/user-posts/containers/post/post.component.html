@@ -1,4 +1,4 @@
-<ng-container *ngIf="(postData$ | async) as postData">
+<ng-container *ngIf="(postData$ | async) as postData; else loadingTemplate">
   <section class="hero">
     <div class="hero-body">
       <div class="container">
@@ -28,3 +28,7 @@
 
   <comment-container [comments]="postData?.comments"></comment-container>
 </ng-container>
+
+<ng-template #loadingTemplate>
+  <app-loading-splash></app-loading-splash>
+</ng-template>
