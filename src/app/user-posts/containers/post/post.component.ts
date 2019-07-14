@@ -24,7 +24,6 @@ export class PostComponent implements OnInit, OnDestroy {
     this.route.params.pipe(tap((params: Params) => {
       if (params.id) {
         this.postData$ = this.postService.initialisePost(params.id);
-        this.postData$.subscribe(console.log)
       }
       else {
         this.router.navigate([RouteConstant.POSTS]);

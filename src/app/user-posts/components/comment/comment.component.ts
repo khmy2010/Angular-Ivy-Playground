@@ -9,10 +9,4 @@ import { ICommentModel } from 'src/app/post-api/model/comment.i';
 })
 export class CommentComponent {
   @Input() comment: ICommentModel;
-
-  ngOnChanges(changes): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log('this.comment (CC): ', this.comment);
-  }
 }
