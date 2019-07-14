@@ -24,8 +24,7 @@
     "bulma": "^0.7.5",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1",
-    "deploy": "ng build --prod"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.801.1",
