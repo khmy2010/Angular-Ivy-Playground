@@ -1,0 +1,28 @@
+<ng-container *ngIf="(postData$ | async) as postData">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <h4 class="title capitalize">{{ postData?.title }}</h4>
+        <h6 class="subtitle">by {{ postData?.userData?.name }}</h6>
+        <div class="columns is-mobile">
+          <div class="column">
+            <span class="has-text-link lowercase">{{ postData?.userData?.email }}</span>
+          </div>
+          <div class="column">
+            <span class="has-text-link lowercase pointer">{{ postData?.userData?.website }}</span>
+          </div>
+          <div class="column">
+            <span>{{ postData?.userData?.phone }}</span>
+          </div>
+          <div class="column">
+            <span class="has-text-grey-dark">working at {{ postData?.userData?.company?.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content is-medium pl2 pr2">
+    <p>{{ postData?.body }}</p>
+  </div>
+</ng-container>

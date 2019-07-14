@@ -1,0 +1,5 @@
+<div class="columns is-desktop is-multiline is-vcentered">
+  <div class="column is-half pointer" (click)="readPost(post?.id)" *ngFor="let post of posts$ | async">
+    <post-card [post]="post"></post-card>
+  </div>
+</div>
