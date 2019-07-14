@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '10'
+dist: trusty
+cache: 
+  directories:
+    - node_modules
+    - .firebase
+skip_cleanup: true
+branches:
+  only:
+  - master
+deploy:
+  provider: firebase
+  token:
+    secure: "CWx3MhL9490d6eqsh9CvXaeiBwleHcPEisEsAirGIC2AiqYhyz1hWwRxzZhVF7T/mj2NK669ZqZhSX+XdXAXGtbQSFjE8RqEuKWZGIjksJtYtigyjkcmYOHuW4f46aFCZ6Y/z96wYKJs12XEug5cZk1QIzoEkWcajRZcQOcuHd/ft6voaCmi+EVX0f4dZkjyPMxhaAkhMkUzs5sZzYzxSld0km+hHugOs51jV3oR/0024K1uh2tHXQZpWL69znJ9xpxJr8sVW77jQTgLk7pgPB25qBdA7iGtrhvH5Uno9ZmiMs6HU4dJ5Vas+MHKyikoOQRnhR2qtWAGYC3O2euhbE5KALi1HvRbQi3aXu2fPt1jCX0LLOu3cNkhcarCJlkBU3XDczwMXT89nfa4vCnNfdvHSjpvVPsHflloJ/QZUQnQGsfOxprIKiynjBZgl/qkbzN+x6d/Lg9hxrvhr0oianAgLUClmlOFBZscBymrIEo42GuSfun7kTgel//8G79ORNHBUrRMwkCoC7FflcAmi9gu0+y+M66YGee20TnIfW9nJCZfXeP/3Bs3pdtZ0uKOKNXtr2RjwesRi9VgDKy2vGUZMadjv3pr6QKBvsK7RIAehh5BIMF8a3u4ceN7OqgEtQzPjlwb213tMbx6neaTg2nIiS8pvFMAXMw8iecI3AI="
