@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "c": "npx git-cz",
     "p": "git push -u origin master",
     "gc": "ng g c user-posts/post-card --skipImport=true --selector=post-card --skipTests=true -c=OnPush"
   },
