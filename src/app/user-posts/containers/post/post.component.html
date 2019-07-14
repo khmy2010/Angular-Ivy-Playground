@@ -1,3 +1,5 @@
+<p class="pointer has-text-link pl2 pr2 pt-2 bold" (click)="back()">Back to all posts</p>
+
 <ng-container *ngIf="(postData$ | async) as postData; else loadingTemplate">
   <section class="hero">
     <div class="hero-body">

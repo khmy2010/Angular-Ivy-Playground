@@ -36,4 +36,8 @@ export class PostComponent implements OnInit, OnDestroy {
     this.cdRef.detach();
   }
 
+  back() {
+    this.router.navigate([RouteConstant.POSTS]);
+  }
+
 }
