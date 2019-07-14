@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot=true --buildOptimizer=true --progress=true --verbose=true",
+    "build": "ng build --aot=true --buildOptimizer=true --progress=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "c": "npx git-cz",
