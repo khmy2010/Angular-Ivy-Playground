@@ -10,6 +10,8 @@ skip_cleanup: true
 branches:
   only:
   - master
+install:
+- npm install
 deploy:
   provider: firebase
   token:
