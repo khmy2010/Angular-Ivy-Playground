@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { tap, switchMap, map, shareReplay } from 'rxjs/operators';
 import { IPostModel } from 'src/app/post-api/model/post.i';
 import { ICommentModel } from 'src/app/post-api/model/comment.i';
+import { IUserContentModel } from 'src/app/post-api/model/user-content.i';
+import { IUserModel } from 'src/app/post-api/model/user.i';
 
 @Injectable()
 export class PostService {
@@ -47,5 +49,24 @@ export class PostService {
         comments
       }
     }));
+  }
+
+  initialiseUserContent(userId: string) {
+    const posts$: Observable<any> = this.postApiService.findPostsByUser(userId);
+
+    let users = [];
+
+    return this.users$.pipe(tap((fetchedUsers: Array<any>) => {
+      users = fetchedUsers;
+    }), switchMap(() => posts$), map((posts: Array<IUserContentModel>) => {
+      return {
+        posts,
+        userData: this.findUserData(users, parseInt(userId, 10))
+      }
+    }));
+  }
+
+  private findUserData(users: Array<IUserModel>, userId: number) {
+    return users.find(({id}) => id === userId);
   }
 }

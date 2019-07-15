@@ -30,6 +30,13 @@ export class PostApiService {
     return this.get(`/users`);
   }
 
+  findPostsByUser(userId: string) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append('userId', userId);
+
+    return this.get('/posts', queryParams);
+  }
+
   private get(url: string, queryParams?: any) {
     const buildUrl: string = this.URL + url;
 

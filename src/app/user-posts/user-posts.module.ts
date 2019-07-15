@@ -8,6 +8,7 @@ import { CommentComponent } from './components/comment/comment.component';
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostService } from './services/post.service';
+import { UserContentComponent } from './containers/user-content/user-content.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PostService } from './services/post.service';
     PostComponent, 
     CommentsContainerComponent, 
     CommentComponent,
-    PostCardComponent
+    PostCardComponent,
+    UserContentComponent
   ],
   imports: [
     CommonModule,
