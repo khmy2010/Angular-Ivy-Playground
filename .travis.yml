@@ -18,7 +18,7 @@ before_script:
 script:
   - npm install
   - npm run build
-  - npm run cy:verify-cy
+  - npm run ci:verify-cy
   - npm run ci:test
 before_deploy: "echo 'Deploying build to Firebase Hosting...'"
 deploy:
