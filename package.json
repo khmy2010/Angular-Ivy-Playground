@@ -6,10 +6,15 @@
     "start": "ng serve",
     "build": "ng build --aot=true --buildOptimizer=true --progress=true",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "concurrently \"npm start\" \"npx cypress open\"",
     "c": "npx git-cz",
     "p": "git push -u origin master",
-    "gc": "ng g c shared/loading-splash --skipImport=true --selector=app-loading-splash --skipTests=true -c=OnPush"
+    "gc": "ng g c shared/loading-splash --skipImport=true --selector=app-loading-splash --skipTests=true -c=OnPush",
+    "cypress:open": "cypress open",
+    "ci:start-server": "angular-http-server --path ./dist/angular-ivy -p 4200",
+    "ci:cy": "cypress run",
+    "ci:verify-cy": "cypress verify",
+    "ci:test": "start-server-and-test ci:start-server http://localhost:4200 ci:cy"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +39,9 @@
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-http-server": "^1.9.0",
     "codelyzer": "^5.0.0",
+    "concurrently": "^4.1.1",
     "cypress": "^3.4.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -44,6 +51,7 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.0",
+    "start-server-and-test": "^1.9.1",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
