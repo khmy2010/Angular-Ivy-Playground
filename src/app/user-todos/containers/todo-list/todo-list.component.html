@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+  <h4 class="title is-4">What's in your mind today?</h4>
+
+  <ng-container *ngIf="todos.length > 0; else promptTemplate">
+    <div class="mt3 mb3" formArrayName="todos">
+      <todo *ngFor="let todo of todos.controls; let i = index" [form]="todos.at(i)" (delete)="deleteTodo(i)"></todo>
+    </div>
+    <ng-container *ngTemplateOutlet="newTodoTemplate"></ng-container>
+  </ng-container>
+
+</div>
+
+<ng-template #promptTemplate>
+  <p class="subtitle">There's no todos, how about <span hoverable (click)="addTodo()">adding one</span>?</p>
+</ng-template>
+
+<ng-template #newTodoTemplate>
+  <div class="box">
+    <a class="button is-link is-medium pointer is-fullwidth rounded mt2 mb2" (click)="addTodo()">Add New</a>
+    <a class="button is-danger is-medium pointer is-fullwidth rounded mt2 mb2" (click)="deleteAll()">Delete All ({{ todos.length }})</a>
+  </div>
+</ng-template>
+

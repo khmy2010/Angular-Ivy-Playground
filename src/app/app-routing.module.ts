@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: RouteConstant.POSTS,
     loadChildren: () => import('./user-posts/user-posts.module').then(m => m.UserPostsModule)
+  },
+  {
+    path: RouteConstant.TODOS,
+    loadChildren: () => import('./user-todos/user-todos.module').then(m => m.UserTodosModule)
   }
 ];
 

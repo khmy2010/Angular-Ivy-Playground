@@ -14,7 +14,7 @@ import { PostApiModule } from './post-api/post-api.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    PostApiModule
+    PostApiModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

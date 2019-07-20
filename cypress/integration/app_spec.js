@@ -2,7 +2,7 @@
 /// <reference types="cypress" />
 
 // type definitions for custom commands like "createDefaultTodos"
-describe("First test", () => {
+describe("Posts", () => {
   it("should visit posts page", () => {
     cy.visit("/posts");
   });

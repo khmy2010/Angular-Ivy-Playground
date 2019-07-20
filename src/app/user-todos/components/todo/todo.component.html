@@ -1,0 +1,14 @@
+<div class="columns is-mobile mt3 mb3">
+  <div class="field column is-half" [formGroup]="form">
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-large" type="text" placeholder="Buy Durian at SS2" formControlName="description">
+    </div>
+    <!-- <p class="help is-success">This username is available</p> -->
+  </div>
+  <div class="column">
+    <a class="button is-danger is-large pointer rounded" (click)="delete.emit()">Delete</a>
+  </div>
+  <div class="column">
+    <a class="button is-success is-large pointer rounded">Done</a>
+  </div>
+</div>
