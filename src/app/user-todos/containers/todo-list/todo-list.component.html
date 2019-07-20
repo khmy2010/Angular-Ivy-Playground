@@ -2,19 +2,19 @@
   <h4 class="title is-4">What's in your mind today?</h4>
 
   <nav class="level is-mobile">
-    <div class="level-item has-text-centered">
+    <div class="level-item has-text-centered" id="todo-pending">
       <div>
         <p class="heading">Pending</p>
         <p class="title has-text-danger">{{ counts?.pending || 0 }}</p>
       </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="level-item has-text-centered" id="todo-completed">
       <div>
         <p class="heading">Completed</p>
         <p class="title has-text-success">{{ counts?.completed || 0 }}</p>
       </div>
     </div>
-    <div class="level-item has-text-centered">
+    <div class="level-item has-text-centered" id="todo-all">
       <div>
         <p class="heading">All</p>
         <p class="title has-text-info">{{ counts?.all || 0 }}</p>
@@ -41,7 +41,7 @@
 <ng-template #newTodoTemplate>
   <div class="box">
     <a class="button is-link is-medium pointer is-fullwidth rounded mt2 mb2" (click)="addTodo()">Add New</a>
-    <a class="button is-danger is-medium pointer is-fullwidth rounded mt2 mb2" (click)="deleteAll()">Delete All ({{ todos.length }})</a>
+    <a class="button is-danger is-medium pointer is-fullwidth rounded mt2 mb2" (click)="deleteAll()" id="deleteCount">Delete All ({{ todos.length }})</a>
   </div>
 </ng-template>
 
