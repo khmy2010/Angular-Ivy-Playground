@@ -1,0 +1,13 @@
+<div class="columns is-mobile italic">
+  <div class="column is-half">
+    <h5 class="title is-4">{{ data?.description }}</h5>
+  </div>
+  <div class="column">
+    <p class="subtitle is-5">
+      <span class="has-text-grey">Completed at {{ data?.completedTime | date:'LLL dd, HH:mm' }}</span>
+    </p>
+  </div>
+  <div class="column is-1">
+    <a class="delete is-large pointer is-danger" (click)="delete.emit()"></a>
+  </div>
+</div>

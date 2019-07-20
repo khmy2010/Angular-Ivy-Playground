@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { tap, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'todo-list',
@@ -9,13 +10,18 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 })
 export class TodoListComponent implements OnInit {
   form: FormGroup;
+  counts: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.form = this.fb.group({
       todos: this.fb.array([])
     })
+
+    this.todos.valueChanges.pipe(distinctUntilChanged(), tap((todos: Array<any>) => {
+      this.updateCounts(todos);
+    })).subscribe();
   }
 
   get todos(): FormArray {
@@ -25,8 +31,8 @@ export class TodoListComponent implements OnInit {
   addTodo() {
     this.todos.push(this.fb.group({
       description: [''],
-      time: [Date.now()],
-      done: [false]
+      done: [false],
+      completedTime: []
     }));
   }
 
@@ -34,8 +40,38 @@ export class TodoListComponent implements OnInit {
     this.todos.removeAt(index);
   }
 
+  done(index: number) {
+    this.todos.at(index).patchValue({
+      done: true,
+      completedTime: Date.now()
+    });
+  }
+
   deleteAll() {
     this.todos.clear();
+  }
+
+  private updateCounts(todos: Array<any>) {
+    const ret = {
+      pending: 0,
+      completed: 0,
+      all: todos.length
+    };
+
+    todos.forEach(({done}) => {
+      if (done) {
+        ret.completed = ret.completed + 1;
+      }
+      else {
+        ret.pending = ret.pending + 1;
+      }
+    });
+
+    this.counts = {
+      ...ret
+    };
+
+    this.cdRef.markForCheck();
   }
 
 }

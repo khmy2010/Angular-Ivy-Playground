@@ -10,6 +10,7 @@ export class TodoComponent implements OnInit {
   @Input() form: FormGroup;
 
   @Output() delete: EventEmitter<void> = new EventEmitter<void>();
+  @Output() done: EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
 

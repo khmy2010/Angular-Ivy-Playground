@@ -1,9 +1,33 @@
 <div [formGroup]="form">
   <h4 class="title is-4">What's in your mind today?</h4>
 
+  <nav class="level is-mobile">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Pending</p>
+        <p class="title has-text-danger">{{ counts?.pending || 0 }}</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Completed</p>
+        <p class="title has-text-success">{{ counts?.completed || 0 }}</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">All</p>
+        <p class="title has-text-info">{{ counts?.all || 0 }}</p>
+      </div>
+    </div>
+  </nav>
+
   <ng-container *ngIf="todos.length > 0; else promptTemplate">
     <div class="mt3 mb3" formArrayName="todos">
-      <todo *ngFor="let todo of todos.controls; let i = index" [form]="todos.at(i)" (delete)="deleteTodo(i)"></todo>
+      <ng-container *ngFor="let todo of todos.controls; let i = index">
+        <todo *ngIf="!(todo.get('done').value)" [form]="todos.at(i)" (delete)="deleteTodo(i)" (done)="done(i)"></todo>
+        <todo-completed *ngIf="todo.get('done').value" [data]="todo.value" (delete)="deleteTodo(i)"></todo-completed>
+      </ng-container>
     </div>
     <ng-container *ngTemplateOutlet="newTodoTemplate"></ng-container>
   </ng-container>

@@ -6,11 +6,13 @@ import { StoreModule } from '../store/store.module';
 import { UserTodosRoutingModule } from './user-todos.routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { HoverableDirective } from './directives/hoverable.directive';
+import { CompletedComponent } from './components/completed/completed.component';
 
 @NgModule({
   declarations: [
     TodoListComponent, 
     TodoComponent, 
+    CompletedComponent,
     HoverableDirective
   ],
   imports: [
