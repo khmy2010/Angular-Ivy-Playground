@@ -25,4 +25,45 @@ describe("Todos", () => {
 
     cy.get('#deleteCount').should('have.text', 'Delete All (1)');
   })
+
+  it('should be able to enter a todo.', () => {
+    const VALUE = 'read a book';
+
+    cy.get('.todo input')
+      .type(VALUE, { delay: 60 }).should('have.value', VALUE);
+  });
 });
+
+describe('Manipulating One Todo', () => {
+  beforeEach(() => {
+    cy.visit("/todos");
+
+    const VALUE = 'read a book';
+
+    cy.contains('adding one').click();
+
+    cy.get('.todo input')
+      .type(VALUE).should('have.value', VALUE);
+  })
+
+  it('should be able to delete a todo.', () => {
+    cy.get('.todo a').first().click();
+    cy.get('.todo').should('have.length', 0);
+  });
+
+  it('should be able to complete a todo.', () => {
+    cy.contains('Done').first().click();
+    cy.get('.todo').should('have.length', 0);
+  });
+
+  it('should be displaying correct time after a todo is finished.', () => {
+    const date = new Date().toDateString().split(' ');
+    const month = date[1];
+    const day = date[2];
+
+    cy.contains('Done').first().click();
+    // cy.get('.completed-time').first().should('have.text.match', month);
+    cy.contains(month).should('have.length.greaterThan', 0);
+    cy.contains(day).should('have.length.greaterThan', 0);
+  });
+})
