@@ -40,7 +40,7 @@
 
 <ng-template #newTodoTemplate>
   <div class="box">
-    <a class="button is-link is-medium pointer is-fullwidth rounded mt2 mb2" (click)="addTodo()">Add New</a>
+    <a class="button is-link is-medium pointer is-fullwidth rounded mt2 mb2" (click)="addTodo()" id="addNewTodo">Add New</a>
     <a class="button is-danger is-medium pointer is-fullwidth rounded mt2 mb2" (click)="deleteAll()" id="deleteCount">Delete All ({{ todos.length }})</a>
   </div>
 </ng-template>
