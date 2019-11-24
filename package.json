@@ -14,7 +14,9 @@
     "ci:start-server": "angular-http-server --path ./dist/angular-ivy -p 4200",
     "ci:cy": "cypress run",
     "ci:verify-cy": "cypress verify",
-    "ci:test": "start-server-and-test ci:start-server http://localhost:4200 ci:cy"
+    "ci:test": "start-server-and-test ci:start-server http://localhost:4200 ci:cy",
+    "unit-test": "ng test --watch=true",
+    "trial": "http-server ./dist/angular-ivy -o"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +47,7 @@
     "codelyzer": "^5.0.0",
     "concurrently": "^4.1.1",
     "cypress": "^3.4.0",
+    "http-server": "^0.11.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.2.0",

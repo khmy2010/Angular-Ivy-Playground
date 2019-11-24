@@ -1,0 +1,12 @@
+<div class="field is-horizontal mb3" [formGroup]="root">
+  <div class="field-label is-normal">
+    <label class="label">{{ name }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded">
+        <input class="input" type="text" [placeholder]="name" [formControl]="root.get(ctrl)" [ngClass]="{'is-danger': root.get(ctrl)?.touched && root.get(ctrl)?.error}">
+      </p>
+    </div>
+  </div>
+</div>

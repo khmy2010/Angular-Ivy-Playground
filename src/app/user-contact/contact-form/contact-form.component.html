@@ -1,0 +1,16 @@
+<!-- <figure class="image mx-auto">
+  <img src="assets/ut-mockup.jpg" alt="mock-up" class="fit">
+</figure> -->
+
+
+<h4 class="title is-4">Testing a Reactive Form</h4>
+
+<ng-container [formGroup]="form">
+  <app-form-input-ctrl [root]="form" ctrl="name" name="Name"></app-form-input-ctrl>
+  <app-form-input-ctrl [root]="form" ctrl="email" name="Email"></app-form-input-ctrl>
+  <app-form-input-ctrl [root]="form" ctrl="postcode" name="Postcode"></app-form-input-ctrl>
+</ng-container>
+
+<div class="mt3 mb3">
+  <button class="button is-link is-rounded" (click)="submit" [disabled]="form.invalid">Submit</button>
+</div>

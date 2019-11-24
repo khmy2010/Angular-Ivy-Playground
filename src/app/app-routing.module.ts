@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: RouteConstant.TODOS,
     loadChildren: () => import('./user-todos/user-todos.module').then(m => m.UserTodosModule)
+  },
+  {
+    path: RouteConstant.CONTACT,
+    loadChildren: () => import('./user-contact/user-contact.module').then(m => m.UserContactModule)
   }
 ];
 

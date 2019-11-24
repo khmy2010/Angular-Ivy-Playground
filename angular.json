@@ -86,7 +86,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/normalize.css",
+              "src/styles/utility.css",
+              "src/styles/global.css",
+              "node_modules/bulma/css/bulma.min.css"
             ],
             "scripts": []
           }
